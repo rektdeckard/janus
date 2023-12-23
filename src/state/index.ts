@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { v4 as uuid } from "uuid";
 import { OnMount } from "@monaco-editor/react";
 
-interface EditorState {
+interface BlockState {
   label: string;
   editor: Parameters<OnMount>[0] | null;
   monaco: Parameters<OnMount>[1] | null;
@@ -15,7 +15,7 @@ const UNINITIALIZED = {
 } as const;
 
 interface NotebookState {
-  blocks: Map<string, EditorState>;
+  blocks: Map<string, BlockState>;
   createBlock: () => void;
   registerBlock: (id: string, ...onMount: Parameters<OnMount>) => void;
   renameBlock: (id: string, label: string) => void;

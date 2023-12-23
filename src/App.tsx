@@ -13,7 +13,7 @@ function App() {
   });
 
   return (
-    <div className="container">
+    <div className="monaco-editor container">
       <Notebook />
     </div>
   );

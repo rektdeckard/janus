@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export type UseEventTarget = HTMLElement | SVGElement | Document | Window;
+export type UseEventTarget = HTMLElement | SVGElement | MediaQueryList | Document | Window;
 
 export type UseEventMap<E extends UseEventTarget> = E extends HTMLElement
   ? HTMLElementEventMap
@@ -8,6 +8,8 @@ export type UseEventMap<E extends UseEventTarget> = E extends HTMLElement
   ? SVGElementEventMap
   : E extends Document
   ? DocumentEventMap
+  : E extends MediaQueryList
+  ? MediaQueryListEventMap
   : WindowEventMap;
 
 export type UseEventType<E extends UseEventTarget> = keyof UseEventMap<E>;
